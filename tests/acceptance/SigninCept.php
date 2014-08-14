@@ -13,4 +13,4 @@ $I->see('Hello, test!');
 $I->seeLink('[Sign Out]', '/user/logout');
 
 $I->click('[Sign Out]');
-$I->see('Sign In');
+$I->seeCurrentUrlEquals('/user/login');
