@@ -7,9 +7,11 @@
 class_name: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser
+        - WebDriver
         - AcceptanceHelper
         - Db
     config:
-        PhpBrowser:
+        WebDriver:
             url: 'http://localhost/'
+            browser: firefox
+            port: 4444

@@ -6,4 +6,4 @@
 
 class_name: FunctionalTester
 modules:
-    enabled: [Filesystem, FunctionalHelper, ZF2]
+    enabled: [Db, FunctionalHelper, ZF2]

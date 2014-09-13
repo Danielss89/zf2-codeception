@@ -1,4 +1,7 @@
 <?php
+
+namespace Test\Acceptance;
+
 use \AcceptanceTester;
 
 class UserCest
