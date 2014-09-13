@@ -6,6 +6,12 @@
         "framework",
         "zf2"
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Eye4web/Codeception"
+        }
+    ],
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.3.3",
@@ -13,6 +19,6 @@
         "zf-commons/zfc-user": "1.*"
     },
     "require-dev": {
-        "codeception/codeception": "2.*"
+        "codeception/codeception": "dev-zf2-connector-statuscode-reset"
     }
 }
