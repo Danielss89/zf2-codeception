@@ -11,3 +11,12 @@ modules:
             url: 'http://localhost/'
             browser: firefox
             port: 4444
+env:
+    circle:
+         modules:
+            enabled:
+                - WebDriver
+            config:
+                WebDriver:
+                    url: 'http://localhost/'
+                    browser: chrome

@@ -1,0 +1,26 @@
+machine:
+  timezone:
+    Europe/Copenhagen
+  php:
+    version: 5.5.11
+
+dependencies:
+  pre:
+    - sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/home\/ubuntu\/zf2-codeception\/public/g' /etc/apache2/sites-available/default
+    - sed -i 's/Directory \/var\/www\//Directory \/home\/ubuntu\/zf2-codeception\/public/g' /etc/apache2/sites-available/default
+    - sed -i '/Directory \/home\/ubuntu\/zf2-codeception\/public/,/\/Directory/ s/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default
+    - a2enmod rewrite
+    - sudo service apache2 restart
+  override:
+    - composer install --dev --prefer-source --no-interaction
+  post:
+    - chmod -R 777 /home/ubuntu/zf2-codeception/data/*
+    - cp /home/ubuntu/zf2-codeception/config/autoload/local.php.dist /home/ubuntu/zf2-codeception/config/autoload/local.php
+    - mysql -u ubuntu circle_test < data/schema.sql
+    - wget https://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar
+    - java -jar selenium-server-standalone-2.39.0.jar:
+        background: true
+
+test:
+  override:
+    - cd /home/ubuntu/zf2-codeception && php vendor/bin/codecept run --env circle

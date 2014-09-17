@@ -12,4 +12,16 @@
  */
 
 return array(
+    'db' => array(
+        'driver'    => 'PdoMysql',
+        'hostname'  => 'localhost',
+        'database'  => 'dbname',
+        'username'  => 'dbuser',
+        'password'  => '123',
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+        ),
+    ),
 );
