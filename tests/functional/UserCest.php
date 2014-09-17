@@ -28,6 +28,7 @@ class UserCest
 
         $I->seeCurrentUrlEquals('/user');
         $I->seeInDatabase('user', array('email' => 'test@zf2.com'));
+        $I->amSignedIn();
     }
 
     public function testCantSignupWithExistingEmail(FunctionalTester $I)
@@ -44,5 +45,8 @@ class UserCest
 
         $I->seeCurrentUrlEquals('/user/register');
         $I->see('A record matching the input was found');
+
+        $I->seeInDatabase('user', array('email' => 'test@test.com'));
+        $I->amNotSignedIn();
     }
 }
