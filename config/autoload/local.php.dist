@@ -14,10 +14,10 @@
 return array(
     'db' => array(
         'driver'    => 'PdoMysql',
-        'hostname'  => 'localhost',
-        'database'  => 'dbname',
-        'username'  => 'dbuser',
-        'password'  => '123',
+        'hostname'  => '127.0.0.1',
+        'database'  => 'circle_test',
+        'username'  => 'root',
+        'password'  => '',
     ),
     'service_manager' => array(
         'factories' => array(

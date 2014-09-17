@@ -15,3 +15,12 @@ modules:
             user: 'dbuser'
             password: '123'
             dump: data/schema.sql
+env:
+  circle:
+    modules:
+        config:
+            Db:
+                dsn: 'mysql:host=127.0.0.1;dbname=circle_test'
+                user: 'root'
+                password: ''
+                dump: data/schema.sql
